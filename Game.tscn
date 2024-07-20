@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://2nfxlflajjso"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_cik1r"]
+[ext_resource type="Script" path="res://addons/jam_launch/core/JamConnect.gd" id="1_uh7au"]
+[ext_resource type="Texture2D" uid="uid://477keyso72x5" path="res://assets/backgroundaxes.png" id="2_cabu7"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_cik1r")
+
+[node name="JamConnect" type="Node" parent="."]
+script = ExtResource("1_uh7au")
+
+[node name="Starmap" type="Sprite2D" parent="."]
+texture = ExtResource("2_cabu7")
+
+[node name="Players" type="Node2D" parent="."]
+
+[connection signal="player_connected" from="JamConnect" to="." method="_on_jam_connect_player_connected"]
+[connection signal="player_disconnected" from="JamConnect" to="." method="_on_jam_connect_player_disconnected"]
