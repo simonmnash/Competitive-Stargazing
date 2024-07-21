@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdcc601sjasv5"]
+
+[sub_resource type="Gradient" id="Gradient_imqff"]
+colors = PackedColorArray(0.521569, 0.521569, 0.278431, 0.372549, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kp7yd"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_smqsn"]
+width = 32
+height = 32
+color_ramp = SubResource("Gradient_imqff")
+noise = SubResource("FastNoiseLite_kp7yd")
+
+[node name="Star" type="Sprite2D"]
+texture = SubResource("NoiseTexture2D_smqsn")
