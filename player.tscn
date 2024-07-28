@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/jam_launch/core/JamSync.gd" id="1_de01n"]
 [ext_resource type="Script" path="res://player.gd" id="1_vifab"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tiwh0"]
-size = Vector2(100, 100)
+[ext_resource type="Theme" uid="uid://bdsvja3ysf1oc" path="res://assets/default_theme.tres" id="3_chlka"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_vifab")
@@ -19,13 +17,14 @@ sync_properties = Array[String](["c_rotation"])
 [node name="VerticalTransform" type="Node2D" parent="Rotation"]
 position = Vector2(0, -500)
 
-[node name="Sprite2D" type="Sprite2D" parent="Rotation/VerticalTransform"]
-texture = SubResource("PlaceholderTexture2D_tiwh0")
-
 [node name="Camera2D" type="Camera2D" parent="Rotation/VerticalTransform"]
 ignore_rotation = false
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Test Player"
+[node name="Label" type="Label" parent="Rotation/VerticalTransform"]
+offset_left = -209.0
+offset_top = 121.0
+offset_right = 212.0
+offset_bottom = 150.0
+theme = ExtResource("3_chlka")
+text = "Player"
+horizontal_alignment = 1

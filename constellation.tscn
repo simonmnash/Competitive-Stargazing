@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkeqp4vwhusng"]
+[gd_scene load_steps=3 format=3 uid="uid://dkeqp4vwhusng"]
 
 [ext_resource type="Script" path="res://constellation.gd" id="1_2g61e"]
-[ext_resource type="PackedScene" uid="uid://cdcc601sjasv5" path="res://star.tscn" id="2_4eu74"]
 [ext_resource type="Script" path="res://addons/jam_launch/core/JamSync.gd" id="2_hkfp6"]
 
 [node name="Constellation" type="Node2D"]
@@ -14,21 +13,11 @@ position = Vector2(0, -500)
 
 [node name="StarGroup" type="Node2D" parent="Rotation/VerticalTransform"]
 
-[node name="Star" parent="Rotation/VerticalTransform/StarGroup" instance=ExtResource("2_4eu74")]
-
-[node name="Star2" parent="Rotation/VerticalTransform/StarGroup" instance=ExtResource("2_4eu74")]
-position = Vector2(83, 1)
-
-[node name="Star3" parent="Rotation/VerticalTransform/StarGroup" instance=ExtResource("2_4eu74")]
-position = Vector2(-89, -3)
-
-[node name="Star4" parent="Rotation/VerticalTransform/StarGroup" instance=ExtResource("2_4eu74")]
-position = Vector2(4, -70)
-
-[node name="Star5" parent="Rotation/VerticalTransform/StarGroup" instance=ExtResource("2_4eu74")]
-position = Vector2(-4, 76)
-
 [node name="JamSync" type="Node" parent="."]
 script = ExtResource("2_hkfp6")
 spawn_properties = Array[String](["position", "azimuth"])
 sync_properties = Array[String](["azimuth", "position"])
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
