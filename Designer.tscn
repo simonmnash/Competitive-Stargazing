@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bktkj5c38ltmm"]
+
+[ext_resource type="PackedScene" uid="uid://dkeqp4vwhusng" path="res://constellation.tscn" id="1_3eh87"]
+[ext_resource type="Script" path="res://Designer.gd" id="1_wjcrf"]
+[ext_resource type="Theme" uid="uid://bdsvja3ysf1oc" path="res://assets/default_theme.tres" id="2_jq5jk"]
+
+[node name="Designer" type="Node2D"]
+script = ExtResource("1_wjcrf")
+
+[node name="Rules" type="Label" parent="."]
+offset_left = -561.0
+offset_top = -804.0
+offset_right = -339.0
+offset_bottom = -781.0
+theme = ExtResource("2_jq5jk")
+text = "Click near stars to dim them."
+
+[node name="Challenge" type="Label" parent="."]
+offset_left = -154.0
+offset_top = -212.0
+offset_right = 150.0
+offset_bottom = -189.0
+theme = ExtResource("2_jq5jk")
+text = "You have been assigned"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -495)
+
+[node name="Constellation" parent="." instance=ExtResource("1_3eh87")]

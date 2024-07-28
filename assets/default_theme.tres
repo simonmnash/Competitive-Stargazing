@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bdsvja3ysf1oc"]
+
+[ext_resource type="FontFile" uid="uid://cxbs4isj4lrl1" path="res://assets/PlaywriteDEGrund-VariableFont_wght.ttf" id="1_8vrg2"]
+
+[resource]
+default_font = ExtResource("1_8vrg2")
