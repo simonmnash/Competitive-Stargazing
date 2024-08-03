@@ -8,22 +8,33 @@
 script = ExtResource("1_wjcrf")
 
 [node name="Rules" type="Label" parent="."]
-offset_left = -561.0
-offset_top = -804.0
-offset_right = -339.0
-offset_bottom = -781.0
+offset_left = -551.0
+offset_top = -800.0
+offset_right = 560.0
+offset_bottom = -771.0
 theme = ExtResource("2_jq5jk")
 text = "Click near stars to dim them."
+horizontal_alignment = 1
 
 [node name="Challenge" type="Label" parent="."]
-offset_left = -154.0
-offset_top = -212.0
-offset_right = 150.0
-offset_bottom = -189.0
+offset_left = -560.0
+offset_top = -210.0
+offset_right = 566.0
+offset_bottom = -181.0
 theme = ExtResource("2_jq5jk")
 text = "You have been assigned"
+horizontal_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = 466.0
+offset_top = -805.0
+offset_right = 564.0
+offset_bottom = -776.0
+theme = ExtResource("2_jq5jk")
+horizontal_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -495)
 
 [node name="Constellation" parent="." instance=ExtResource("1_3eh87")]
+visible = false

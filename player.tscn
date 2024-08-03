@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://db8c3kbqr4r5r"]
+[gd_scene load_steps=5 format=3 uid="uid://db8c3kbqr4r5r"]
 
 [ext_resource type="Script" path="res://addons/jam_launch/core/JamSync.gd" id="1_de01n"]
 [ext_resource type="Script" path="res://player.gd" id="1_vifab"]
 [ext_resource type="Theme" uid="uid://bdsvja3ysf1oc" path="res://assets/default_theme.tres" id="3_chlka"]
+[ext_resource type="PackedScene" uid="uid://bktkj5c38ltmm" path="res://Designer.tscn" id="4_0gn15"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_vifab")
@@ -19,8 +20,10 @@ position = Vector2(0, -500)
 
 [node name="Camera2D" type="Camera2D" parent="Rotation/VerticalTransform"]
 ignore_rotation = false
+enabled = false
 
 [node name="Label" type="Label" parent="Rotation/VerticalTransform"]
+visible = false
 offset_left = -209.0
 offset_top = 121.0
 offset_right = 212.0
@@ -28,3 +31,15 @@ offset_bottom = 150.0
 theme = ExtResource("3_chlka")
 text = "Player"
 horizontal_alignment = 1
+
+[node name="Target" type="Label" parent="Rotation/VerticalTransform"]
+visible = false
+offset_left = -558.0
+offset_top = -301.0
+offset_right = -137.0
+offset_bottom = -272.0
+theme = ExtResource("3_chlka")
+text = "Find the"
+horizontal_alignment = 1
+
+[node name="Designer" parent="." instance=ExtResource("4_0gn15")]

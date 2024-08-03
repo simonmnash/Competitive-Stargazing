@@ -15,5 +15,10 @@ texture = ExtResource("3_owtj2")
 
 [node name="Players" type="Node2D" parent="."]
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="player_connected" from="JamConnect" to="." method="_on_jam_connect_player_connected"]
 [connection signal="player_disconnected" from="JamConnect" to="." method="_on_jam_connect_player_disconnected"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

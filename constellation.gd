@@ -14,7 +14,7 @@ var azimuth: float = 0:
 func add_star(transform):
 	var s = star.instantiate()
 	s.position = transform
-	$Rotation/VerticalTransform/StarGroup.add_child(s)
+	$Rotation/VerticalTransform/StarGroup.add_child(s, true)
 
 func _on_timer_timeout():
 	if $Rotation/VerticalTransform/StarGroup.visible:

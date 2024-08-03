@@ -22,9 +22,20 @@ const options = ["The Coconut Tree",
 "Larry the Chief Mouser",
 "Big Piano Man",
 "The Washing Machine",
+"America"
 ]
 
 func _ready():
 	for i in range(0, 50):
 		$Constellation.add_star(Vector2(rng.randf_range(-250.0, 250.0), rng.randf_range(-250.0, 250.0)))
 	$Challenge.text = "You have been assigned: " + options.pick_random()
+
+func _process(delta):
+	pass
+	#$TimerLabel.text = str(int($Timer.time_left))
+
+func deactivate():
+	$Camera2D.enabled = false
+	$Rules.visible = false
+	$Challenge.visible = false
+	$TimerLabel.visible = false

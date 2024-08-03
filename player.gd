@@ -3,7 +3,7 @@ extends Node2D
 var pid: int
 var angle_movement: float = 0.0
 var last_angle_input: float
-
+var activated = false
 var c_position: float = 0
 const SPEED = 1.0
 
@@ -17,6 +17,15 @@ func _ready():
 	if multiplayer.get_unique_id() == pid:
 		$Rotation/VerticalTransform/Camera2D.make_current()
 
+func activate():
+	if multiplayer.get_unique_id() == pid:
+		$Designer.deactivate()
+		$Rotation/VerticalTransform/Camera2D.enabled = true
+		$Rotation/VerticalTransform/Label.visible = true
+		$Rotation/VerticalTransform/Target.visible = true
+		activated = true
+		$Designer/Constellation.azimuth = 90.0
+
 @rpc("any_peer")
 func set_rotate(amount: float):
 	if multiplayer.get_remote_sender_id() != pid:
@@ -26,9 +35,10 @@ func set_rotate(amount: float):
 
 func _process(delta):
 	var movement = delta*50
-	if multiplayer.get_unique_id() != pid:
-		return
-	if Input.is_action_pressed("ui_right"):
-		set_rotate.rpc_id(1, movement)
-	if Input.is_action_pressed("ui_left"):
-		set_rotate.rpc_id(1, -1*movement)
+	if activated:
+		if multiplayer.get_unique_id() != pid:
+			return
+		if Input.is_action_pressed("ui_right"):
+			set_rotate.rpc_id(1, movement)
+		if Input.is_action_pressed("ui_left"):
+			set_rotate.rpc_id(1, -1*movement)
